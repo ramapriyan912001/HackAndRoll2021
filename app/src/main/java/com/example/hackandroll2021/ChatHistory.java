@@ -56,6 +56,7 @@ public class ChatHistory extends AppCompatActivity {
                                 intent.putExtra("name" , name);
 
                                 Toast.makeText(getApplicationContext(),value,Toast.LENGTH_SHORT).show();
+                                startActivity(intent);
 
                             }
                         });

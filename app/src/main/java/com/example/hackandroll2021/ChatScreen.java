@@ -66,7 +66,7 @@ public class ChatScreen extends AppCompatActivity {
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
                 String url = null;
                 try {
-                    url = "http://192.168.18.21:3306/updateChat?idd1=" + String.valueOf(idd1) + "&idd2=" + String.valueOf(idd2) + "&msg=" + URLEncoder.encode(msgs.getText().toString()+"\n",StandardCharsets.UTF_8.toString())+ URLEncoder.encode(input.getText().toString(), StandardCharsets.UTF_8.toString());
+                    url = "http://192.168.18.21:3306/updateChat?idd1=" + String.valueOf(idd1) + "&idd2=" + String.valueOf(idd2) + "&msg=" + URLEncoder.encode(msgs.getText().toString()+"\n",StandardCharsets.UTF_8.toString())+ URLEncoder.encode(name+": "+input.getText().toString(), StandardCharsets.UTF_8.toString());
                     input.setText("");
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
