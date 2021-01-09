@@ -46,8 +46,9 @@ public class LoginActivity extends AppCompatActivity {
                                 if (response.toString()!="false"){
                                 // Display the first 500 characters of the response string.
                                 textView.setText(response.toString());
-                                Intent i = new Intent(getApplicationContext() , ChatHistory.class);
+                                Intent i = new Intent(getApplicationContext() , ViewProfile.class);
                                 i.putExtra("name", username);
+                                    i.putExtra("prefs", "NONE");
                                 i.putExtra("idd" , Math.round(Float.valueOf(response.toString().split(",")[2])));
 
                                 startActivity(i);}

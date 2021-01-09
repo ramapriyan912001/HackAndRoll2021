@@ -11,4 +11,10 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="textview">TextView</string>
+    <string-array name="dietaryArray">
+        <item>Vegetarian</item>
+        <item>Non Veg Halal</item>
+        <item>Non Veg</item>
+
+    </string-array>
 </resources>
