@@ -1,6 +1,7 @@
 package com.example.hackandroll2021;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +30,36 @@ public class ChatHistory extends AppCompatActivity {
         textView=findViewById(R.id.textView);
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         final int idd1 = getIntent().getIntExtra("idd" , 5);
+        int sendmsg = getIntent().getIntExtra("sendmsg" , 0);
+        if(sendmsg==1){
+            String messageToSend = getIntent().getStringExtra("match");
+            Log.i("logg" , "&idd2="+messageToSend.split(",")[0]);
+            Log.i("logg" , "&idd1="+String.valueOf(idd1));
+            String url ="http://192.168.18.21:3306/updateChat?idd1="+String.valueOf(idd1)+"&idd2="+messageToSend.split(",")[0]+"&msg=hey!";
+
+
+// Request a string response from the provided URL.
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            // Display the first 500 characters of the response string.
+                            Log.i("logg" , "the response is good");
+
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    textView.setText("That didn't work!");
+                    contacts= new String[]{"6" };
+                }
+            });
+            //listItem = new String[contacts.length];
+
+// Add the request to the RequestQueue.
+            queue.add(stringRequest);
+
+        }
         String url ="http://192.168.18.21:3306/contacts?idd1="+String.valueOf(idd1);
 
 

@@ -12,6 +12,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
+        <activity android:name=".findMatches">
+        </activity>
         <activity android:name=".profileEdit">
         </activity>
         <activity android:name=".ViewProfile">

@@ -44,6 +44,7 @@ public class ViewProfile extends AppCompatActivity {
         setContentView(R.layout.activity_view_profile);
         Button edit = (Button) findViewById(R.id.profileSave);;
         Button chat = (Button) findViewById(R.id.profileToChat);
+        Button match = (Button) findViewById(R.id.profileToMatch);
         final TextView username_view = (TextView) findViewById(R.id.profileUsername);
         final TextView diet_view = (TextView) findViewById(R.id.profileDiet);
         final TextView email_view = (TextView) findViewById(R.id.profileEmail);
@@ -91,6 +92,17 @@ public class ViewProfile extends AppCompatActivity {
         edit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final Intent intent = new Intent(getApplicationContext(), profileEdit.class);
+                // Code here executes on main thread after user presses button
+                intent.putExtra("name", name);
+                intent.putExtra("idd", idd1);
+                startActivity(intent);
+            }
+        });
+
+        match.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Intent intent = new Intent(getApplicationContext(), findMatches.class);
                 // Code here executes on main thread after user presses button
                 intent.putExtra("name", name);
                 intent.putExtra("idd", idd1);
